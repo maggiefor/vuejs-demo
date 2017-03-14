@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <div class='container' id="app">
+            <div v-for="item of items">
+                <input type="checkbox" v-model="item.state" v-on:click="alocked(item)" />
+                status: {{ item.state }}
+            </div>
+        </div>
+    </body>
+    <script src="//cdn.bootcss.com/vue/2.1.0/vue.js" type="text/javascript" charset="utf-8"></script>
+    <script src="//cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    var amount = new Vue({
+        el: '#app',
+        data: function(){
+            return {
+              items: [{
+                  state: false
+              },{
+                  state: true
+              }]
+          };
+        },
+        methods: {
+            alocked: function (item) {
+                item.state = !item.state;
+            }
+        }
+    });
+    </script>
+</html>
